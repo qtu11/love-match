@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Love Match</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="stylesheet" href="styles.css"> <!-- Đường dẫn đến file CSS đã tích hợp -->
+</head>
+<body>
+    <div class="scroll-effect"></div>
+
+    <header>
+        <nav class="top-nav">
+            <div class="nav-left">
+                <ul class="nav-links">
+                    <li><a href="#" onclick="showPage('home')">Trang chủ</a></li>
+                    <li><a href="#" onclick="showPage('members')">Danh sách thành viên</a></li>
+                    <li><a href="#" onclick="showPage('assignments')">Phân công công việc</a></li>
+                    <li><a href="#" onclick="showPage('contact')">Liên hệ</a></li>
+                </ul>
+            </div>
+            <div class="nav-center">
+                <div class="logo">
+                    <img src="3-removebg-preview.png" alt="Love Match Logo 1">
+                    <img src="1-removebg-preview.png" alt="Love Match Logo 2">
+                </div>
+            </div>
+            <div class="nav-right">
+                <input type="text" class="search-bar" placeholder="Tìm kiếm..." />
+            </div>
+        </nav>
+    </header>
+
+    <!-- Nội dung các trang -->
+    <div id="content">
+        <!-- Trang chủ -->
+        <section class="hero" id="home">
+            <h1>Love Match - Tìm bạn hẹn hò</h1>
+            <p>Chào mừng bạn đến với dự án ghép đôi độc đáo của chúng tôi!</p>
+            <div class="team-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và Tên</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Quang Tú</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Nguyễn Văn Tùng</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Phạm Ngọc Trúc My</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nguyễn Võ Hồng Thi</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Ngô Phan Thái Bình</td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Bùi Chí Dũng</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Nguyễn Quang Tuấn</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Huỳnh Long Nhật</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Nguyễn Hữu Khanh</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Phùng Gia Khánh</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="explore-button" onclick="showPage('members')">Khám phá ngay</button>
+            </div>
+        </section>
+
+        <!-- Danh sách thành viên -->
+        <section class="members" id="members">
+            <h1>Giới thiệu thành viên muốn ghép cặp</h1>
+            <div class="member-grid">
+                <!-- Thành viên 1 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar1.jpg" alt="Nguyễn Quang Tú">
+                    </div>
+                    <h3>Nguyễn Quang Tú</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 18<br>
+                        <strong>Ngày sinh:</strong> 20/02/2007<br>
+                        <strong>Ưu điểm:</strong> Năng động, hài hước<br>
+                        <strong>Nhược điểm:</strong> Hay quên
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Nguyễn Quang Tú', 'avatar1.jpg', 18, '20/02/2007', 'Năng động, hài hước', 'Hay quên')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 2 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar2.jpg" alt="Nguyễn Văn Tùng">
+                    </div>
+                    <h3>Nguyễn Văn Tùng</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 01/06/2007<br>
+                        <strong>Ưu điểm:</strong> Thông minh, sáng tạo<br>
+                        <strong>Nhược điểm:</strong> Thỉnh thoảng nhút nhát
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Nguyễn Văn Tùng', 'avatar2.jpg', 17, '01/06/2007', 'Thông minh, sáng tạo', 'Thỉnh thoảng nhút nhát')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 3 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar3.jpg" alt="Phạm Ngọc Trúc My">
+                    </div>
+                    <h3>Phạm Ngọc Trúc My</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 17/11/2007<br>
+                        <strong>Ưu điểm:</strong> Xinh đẹp, dịu dàng<br>
+                        <strong>Nhược điểm:</strong> Dễ xúc động
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Phạm Ngọc Trúc My', 'avatar3.jpg', 17, '17/11/2007', 'Xinh đẹp, dịu dàng', 'Dễ xúc động')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 4 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar4.jpg" alt="Nguyễn Võ Hồng Thi">
+                    </div>
+                    <h3>Nguyễn Võ Hồng Thi</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 17/05/2007<br>
+                        <strong>Ưu điểm:</strong> Tự tin, nhiệt huyết<br>
+                        <strong>Nhược điểm:</strong> Thích kiểm soát
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Nguyễn Võ Hồng Thi', 'avatar4.jpg', 17, '17/05/2007', 'Tự tin, nhiệt huyết', 'Thích kiểm soát')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 5 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar5.jpg" alt="Ngô Phan Thái Bình">
+                    </div>
+                    <h3>Ngô Phan Thái Bình</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 08/12/2007<br>
+                        <strong>Ưu điểm:</strong> Siêng năng, chu đáo<br>
+                        <strong>Nhược điểm:</strong> Quá nghiêm túc
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Ngô Phan Thái Bình', 'avatar5.jpg', 17, '08/12/2007', 'Siêng năng, chu đáo', 'Quá nghiêm túc')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 6 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar6.jpg" alt="Bùi Chí Dũng">
+                    </div>
+                    <h3>Bùi Chí Dũng</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 13/09/2007<br>
+                        <strong>Ưu điểm:</strong> Thân thiện, dễ mến<br>
+                        <strong>Nhược điểm:</strong> Hay lo lắng
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Bùi Chí Dũng', 'avatar6.jpg', 17, '13/09/2007', 'Thân thiện, dễ mến', 'Hay lo lắng')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 7 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar7.jpg" alt="Nguyễn Quang Tuấn">
+                    </div>
+                    <h3>Nguyễn Quang Tuấn</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 20/02/2007<br>
+                        <strong>Ưu điểm:</strong> Tinh tế, khéo léo<br>
+                        <strong>Nhược điểm:</strong> Thỉnh thoảng lơ đãng
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Nguyễn Quang Tuấn', 'avatar7.jpg', 17, '20/02/2007', 'Tinh tế, khéo léo', 'Thỉnh thoảng lơ đãng')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 8 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar8.jpg" alt="Huỳnh Long Nhật">
+                    </div>
+                    <h3>Huỳnh Long Nhật</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 27/09/2007<br>
+                        <strong>Ưu điểm:</strong> Tự lập, mạnh mẽ<br>
+                        <strong>Nhược điểm:</strong> Ít chia sẻ
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Huỳnh Long Nhật', 'avatar8.jpg', 17, '27/09/2007', 'Tự lập, mạnh mẽ', 'Ít chia sẻ')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 9 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar9.jpg" alt="Nguyễn Hữu Khanh">
+                    </div>
+                    <h3>Nguyễn Hữu Khanh</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 17<br>
+                        <strong>Ngày sinh:</strong> 21/09/2007<br>
+                        <strong>Ưu điểm:</strong> Tích cực, lạc quan<br>
+                        <strong>Nhược điểm:</strong> Hay vội vã
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Nguyễn Hữu Khanh', 'avatar9.jpg', 17, '21/09/2007', 'Tích cực, lạc quan', 'Hay vội vã')">Xét gặp hẹn hò</button>
+                </div>
+                <!-- Thành viên 10 -->
+                <div class="member-card">
+                    <div class="avatar-circle">
+                        <img src="avatar10.jpg" alt="Phùng Gia Khánh">
+                    </div>
+                    <h3>Phùng Gia Khánh</h3>
+                    <p class="description">
+                        <strong>Tuổi:</strong> 19<br>
+                        <strong>Ngày sinh:</strong> 05/11/2005<br>
+                        <strong>Ưu điểm:</strong> Chăm chỉ, đáng tin cậy<br>
+                        <strong>Nhược điểm:</strong> Thích làm việc một mình
+                    </p>
+                    <button class="match-button" onclick="showMemberDetail('Phùng Gia Khánh', 'avatar10.jpg', 19, '05/11/2005', 'Chăm chỉ, đáng tin cậy', 'Thích làm việc một mình')">Xét gặp hẹn hò</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Phân công công việc -->
+        <section class="assignments" id="assignments">
+            <h1>Phân công công việc</h1>
+            <div class="assignment-table">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Họ và Tên</th>
+                            <th>Vai trò</th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>1</td>
+                            <td>Nguyễn Quang Tú</td>
+                            <td>Lập trình Frontend</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Quang Tú', 'Lập trình Frontend', 'avatar1.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Phạm Ngọc Trúc My</td>
+                            <td>Trưởng nhóm</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Phạm Ngọc Trúc My', 'Trưởng nhóm', 'avatar3.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Nguyễn Văn Tùng</td>
+                            <td>Thiết kế giao diện (UI/UX Designer)</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Văn Tùng', 'Thiết kế giao diện (UI/UX Designer)', 'avatar2.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Nguyễn Võ Hồng Thi</td>
+                            <td>Thiết kế giao diện (UI/UX Designer)</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Võ Hồng Thi', 'Thiết kế giao diện (UI/UX Designer)', 'avatar4.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>Ngô Phan Thái Bình</td>
+                            <td>Soạn nội dung</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Ngô Phan Thái Bình', 'Soạn nội dung', 'avatar5.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>Bùi Chí Dũng</td>
+                            <td>Soạn nội dung</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Bùi Chí Dũng', 'Soạn nội dung', 'avatar6.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>Nguyễn Quang Tuấn</td>
+                            <td>Kiếm thử (Tester)</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Quang Tuấn', 'Kiếm thử (Tester)', 'avatar7.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>Huỳnh Long Nhật</td>
+                            <td>Kiểm thử (Tester)</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Huỳnh Long Nhật', 'Kiếm thử (Tester)', 'avatar8.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>Nguyễn Hữu Khanh</td>
+                            <td>Báo cáo và trình bày</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Hữu Khanh', 'Báo cáo và trình bày', 'avatar9.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>Phùng Gia Khánh</td>
+                            <td>Báo cáo và trình bày</td>
+                            <td><button class="detail-button" onclick="showAssignmentDetail('Phùng Gia Khánh', 'Báo cáo và trình bày', 'avatar10.jpg')">Khám phá chi tiết</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <button class="explore-button" onclick="showAssignmentDetailOverview()">Khám phá ngay</button>
+            </div>
+        </section>
+
+        <!-- Form liên hệ -->
+        <section class="contact" id="contact">
+            <form action="https://formspree.io/f/xqapapjl" method="POST">
+                <input type="text" name="name" placeholder="Họ và tên" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <textarea name="message" placeholder="Lời nhắn của bạn" required></textarea>
+                <button type="submit">Gửi yêu cầu đặt lịch</button>
+            </form>
+        </section>
+
+        <!-- Trang chi tiết thành viên -->
+        <section class="member-detail" id="member-detail" style="display: none;">
+            <div class="detail-content">
+                <div class="avatar-circle-large">
+                    <img src="" alt="Thành viên chi tiết" id="detail-avatar">
+                </div>
+                <h2 id="detail-name"></h2>
+                <p class="detail-description">
+                    <strong>Tuổi:</strong> <span id="detail-age"></span><br>
+                    <strong>Ngày sinh:</strong> <span id="detail-birthday"></span><br>
+                    <strong>Ưu điểm:</strong> <span id="detail-advantages"></span><br>
+                    <strong>Nhược điểm:</strong> <span id="detail-disadvantages"></span>
+                </p>
+                <div class="button-group">
+                    <button class="back-button" onclick="showPage('members')">Quay lại</button>
+                    <button class="match-button" onclick="matchNow()">Xét cặp hẹn hò ngay</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Trang chi tiết công việc -->
+        <section class="assignment-detail" id="assignment-detail" style="display: none;">
+            <div class="detail-content">
+                <div class="avatar-circle-large">
+                    <img src="" alt="Thành viên công việc" id="assignment-avatar">
+                </div>
+                <h2 id="assignment-name"></h2>
+                <p class="detail-description">
+                    <strong>Vai trò:</strong> <span id="assignment-role"></span><br>
+                    <strong>Mô tả công việc:</strong> <span id="assignment-description"></span>
+                </p>
+                <button class="back-button" onclick="showPage('assignments')">Quay lại</button>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer (giữ nguyên từ CSS 2) -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-logo">
+                <img src="3-removebg-preview.png" alt="Love Match Logo" class="footer-logo-img">
+            </div>
+            <div class="footer-info">
+                <h3>Love Match - Kết nối tình yêu hoàn hảo</h3>
+                <p>Tìm kiếm bạn hẹn hò lý tưởng với Love Match! Chúng tôi sử dụng công nghệ hiện đại để ghép đôi bạn với người phù hợp nhất, mang đến những mối quan hệ ý nghĩa và bền vững.</p>
+                <p><strong>Số điện thoại:</strong> 1900 1234</p>
+                <p><strong>By:</strong> Nguyễn Quang Tú</p>
+                <p><strong>Btap nhóm 1:</strong> Đoàn kết - yêu thương và sẻ chia ! </p>
+                <p><strong>Email:</strong> support@lovematch.vn</p>
+                <div class="footer-social">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                </div>
+                <p class="footer-copyright">© 2025 Bản quyền thuộc về Love Match | Cùng tạo nên hạnh phúc</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // Hiển thị trang mặc định (Trang chủ)
+        function showPage(pageId) {
+            const pages = document.querySelectorAll('#content section');
+            pages.forEach(page => page.style.display = 'none');
+            document.getElementById(pageId).style.display = 'block';
+        }
+
+        // Hiển thị trang chi tiết thành viên
+        function showMemberDetail(name, avatarSrc, age, birthday, advantages, disadvantages) {
+            document.getElementById('detail-name').textContent = name;
+            document.getElementById('detail-avatar').src = avatarSrc;
+            document.getElementById('detail-age').textContent = age;
+            document.getElementById('detail-birthday').textContent = birthday;
+            document.getElementById('detail-advantages').textContent = advantages;
+            document.getElementById('detail-disadvantages').textContent = disadvantages;
+            showPage('member-detail');
+        }
+
+        // Hiển thị trang chi tiết công việc
+        function showAssignmentDetail(name, role, avatarSrc) {
+            const roleDescriptions = {
+                'Lập trình Frontend': 'Phát triển giao diện web sử dụng HTML, CSS, JavaScript để tạo trải nghiệm người dùng mượt mà.',
+                'Trưởng nhóm': 'Quản lý và điều phối công việc của nhóm, đảm bảo tiến độ và chất lượng dự án.',
+                'Thiết kế giao diện (UI/UX Designer)': 'Thiết kế giao diện thân thiện, đẹp mắt và tối ưu trải nghiệm người dùng.',
+                'Soạn nội dung': 'Viết và chỉnh sửa nội dung hấp dẫn, phù hợp với mục đích dự án.',
+                'Kiếm thử (Tester)': 'Kiểm tra và đảm bảo website hoạt động ổn định, không có lỗi.',
+                'Báo cáo và trình bày': 'Chuẩn bị tài liệu, slide trình bày và báo cáo tiến độ dự án.'
+            };
+            document.getElementById('assignment-name').textContent = name;
+            document.getElementById('assignment-avatar').src = avatarSrc;
+            document.getElementById('assignment-role').textContent = role;
+            document.getElementById('assignment-description').textContent = roleDescriptions[role];
+            showPage('assignment-detail');
+        }
+
+        // Hiển thị trang chi tiết công việc tổng quan (từ nút "Khám phá ngay")
+        function showAssignmentDetailOverview() {
+            showPage('assignments');
+        }
+
+        // Xử lý nút "Xét cặp hẹn hò ngay"
+        function matchNow() {
+            const name = document.getElementById('detail-name').textContent;
+            alert(`Đã gửi yêu cầu ghép đôi với ${name}! Chúng tôi sẽ liên hệ sớm nhất.`);
+        }
+
+        // Hiển thị Trang chủ khi tải trang và xử lý nút "Khám phá ngay"
+        function exploreNow() {
+            alert('Cảm ơn bạn đã quan tâm! Hãy tiếp tục khám phá trang web của chúng tôi.');
+        }
+
+        window.onload = () => showPage('home');
+    </script>
+</body>
+</html>
