@@ -27,6 +27,7 @@ body {
     line-height: 1.6;
     position: relative;
     overflow-x: hidden;
+    padding-top: 70px; /* Cao hơn chiều cao header (60px + padding) */
 }
 
 /* Scroll effect (thêm hiệu ứng thanh cuộn đẹp và động) */
@@ -982,4 +983,266 @@ button[type="submit"]:active {
 
 .glow:hover {
     box-shadow: 0 0 25px rgba(255, 63, 104, 0.8);
+}
+
+/* Responsive Design */
+
+/* Mobile Devices (≤768px) */
+@media screen and (max-width: 768px) {
+    body {
+        font-size: 14px;
+        line-height: 1.5;
+    }
+
+    .scroll-effect {
+        height: 3px;
+    }
+
+    header {
+        padding: 10px 0;
+    }
+
+    .top-nav {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .nav-left {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 10px;
+        align-items: center;
+        background: #fff;
+        padding: 10px 0;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links a {
+        font-size: 1em;
+        padding: 8px 15px;
+    }
+
+    .nav-right {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-bar {
+        width: 100%;
+        max-width: 300px;
+    }
+
+    .menu-toggle {
+        display: block;
+        font-size: 1.5em;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: #ff6f61;
+        padding: 5px;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        z-index: 1001;
+    }
+
+    .menu-toggle:focus {
+        outline: none;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+
+    .hero p {
+        font-size: 1em;
+        margin: 15px 0;
+    }
+
+    .team-table {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .team-table th, .team-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .explore-button {
+        padding: 10px 20px;
+        font-size: 0.9em;
+    }
+
+    .members h1 {
+        font-size: 2em;
+    }
+
+    .member-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+    }
+
+    .member-card {
+        padding: 15px;
+    }
+
+    .avatar-circle {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+
+    .member-card h3 {
+        font-size: 1em;
+    }
+
+    .description {
+        font-size: 0.8em;
+    }
+
+    .match-button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    .assignments {
+        padding: 30px;
+    }
+
+    .assignments h1 {
+        font-size: 2em;
+    }
+
+    .assignment-table {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    .assignment-table th, .assignment-table td {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    .detail-button {
+        padding: 6px 12px;
+        font-size: 0.7em;
+    }
+
+    .contact h1 {
+        font-size: 2em;
+    }
+
+    form {
+        padding: 15px;
+        max-width: 90%;
+    }
+
+    input, textarea {
+        padding: 8px;
+        font-size: 0.9em;
+    }
+
+    button[type="submit"] {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    .member-detail {
+        padding: 30px;
+    }
+
+    .avatar-circle-large {
+        width: 100px;
+        height: 100px;
+        border-width: 3px;
+    }
+
+    .member-detail h2 {
+        font-size: 1.3em;
+    }
+
+    .detail-description {
+        font-size: 0.9em;
+    }
+
+    .button-group {
+        gap: 10px;
+    }
+
+    .back-button, .match-button {
+        padding: 8px 15px;
+        font-size: 0.8em;
+    }
+
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .footer-logo, .footer-info {
+        flex: none;
+        width: 100%;
+        padding: 0;
+        margin-bottom: 15px;
+    }
+
+    .footer-logo-img {
+        width: 150px;
+    }
+
+    .footer-info {
+        text-align: center;
+    }
+
+    .footer-social a {
+        font-size: 1em;
+        margin: 0 8px;
+    }
+
+    .heart-falling {
+        width: 15px;
+        height: 15px;
+        animation-duration: 7s;
+    }
+
+    .nav-links a, .explore-button, .match-button, .detail-button, button[type="submit"], .back-button {
+        min-height: 44px;
+        line-height: 44px;
+    }
+
+    @keyframes fadeInHeart {
+        0% { transform: scale(1); opacity: 1; }
+        50% { transform: scale(1.05); opacity: 0.95; }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes heartBeat {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.05); }
+        100% { transform: scale(1); }
+    }
+
+    .logo img:hover {
+        transform: rotate(180deg) scale(1.05);
+    }
+
+    .member-card:hover {
+        transform: translateY(-5px) rotate(1deg);
+    }
+
+    .avatar-circle:hover, .avatar-circle-large:hover {
+        transform: scale(1.1);
+    }
 }
