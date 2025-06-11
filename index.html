@@ -4,33 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Love Match</title>
-    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="stylesheet" href="styles.css"> <!-- Đường dẫn đến file CSS đã tích hợp -->
 </head>
 <body>
     <div class="scroll-effect"></div>
 
     <header>
-        <nav class="top-nav">
-            <div class="nav-left">
-                <ul class="nav-links">
-                    <li><a href="#" onclick="showPage('home')">Trang chủ</a></li>
-                    <li><a href="#" onclick="showPage('members')">Danh sách thành viên</a></li>
-                    <li><a href="#" onclick="showPage('assignments')">Phân công công việc</a></li>
-                    <li><a href="#" onclick="showPage('contact')">Liên hệ</a></li>
-                </ul>
+    <nav class="top-nav">
+        <button class="menu-toggle" type="button" onclick="toggleMenu()">&#9776;</button> <!-- Nút hamburger -->
+        <div class="nav-left">
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="showPage('home')">Trang chủ</a></li>
+                <li><a href="#" onclick="showPage('members')">Danh sách thành viên</a></li>
+                <li><a href="#" onclick="showPage('assignments')">Phân công công việc</a></li>
+                <li><a href="#" onclick="showPage('contact')">Liên hệ</a></li>
+            </ul>
+        </div>
+        <div class="nav-center">
+            <div class="logo">
+                <img src="3-removebg-preview.png" alt="Love Match Logo 1">
+                <img src="1-removebg-preview.png" alt="Love Match Logo 2">
             </div>
-            <div class="nav-center">
-                <div class="logo">
-                    <img src="3-removebg-preview.png" alt="Love Match Logo 1">
-                    <img src="1-removebg-preview.png" alt="Love Match Logo 2">
-                </div>
-            </div>
-            <div class="nav-right">
-                <input type="text" class="search-bar" placeholder="Tìm kiếm..." />
-            </div>
-        </nav>
-    </header>
+        </div>
+        <div class="nav-right">
+            <input type="text" class="search-bar" placeholder="Tìm kiếm...">
+        </div>
+    </nav>
+</header>
 
     <!-- Nội dung các trang -->
     <div id="content">
@@ -42,8 +43,8 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Họ và Tên</th>
+                            <th scope="col">STT</th>
+                            <th scope="col">Họ và Tên</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -89,7 +90,7 @@
                         </tr>
                     </tbody>
                 </table>
-                <button class="explore-button" onclick="showPage('members')">Khám phá ngay</button>
+                <button class="explore-button" type="button" onclick="showPage('members')">Khám phá ngay</button>
             </div>
         </section>
 
@@ -109,7 +110,7 @@
                         <strong>Ưu điểm:</strong> Năng động, hài hước<br>
                         <strong>Nhược điểm:</strong> Hay quên
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Nguyễn Quang Tú', 'avatar1.jpg', 18, '20/02/2007', 'Năng động, hài hước', 'Hay quên')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Nguyễn Quang Tú', 'avatar1.jpg', 18, '20/02/2007', 'Năng động, hài hước', 'Hay quên')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 2 -->
                 <div class="member-card">
@@ -123,7 +124,7 @@
                         <strong>Ưu điểm:</strong> Thông minh, sáng tạo<br>
                         <strong>Nhược điểm:</strong> Thỉnh thoảng nhút nhát
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Nguyễn Văn Tùng', 'avatar2.jpg', 17, '01/06/2007', 'Thông minh, sáng tạo', 'Thỉnh thoảng nhút nhát')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Nguyễn Văn Tùng', 'avatar2.jpg', 17, '01/06/2007', 'Thông minh, sáng tạo', 'Thỉnh thoảng nhút nhát')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 3 -->
                 <div class="member-card">
@@ -137,7 +138,7 @@
                         <strong>Ưu điểm:</strong> Xinh đẹp, dịu dàng<br>
                         <strong>Nhược điểm:</strong> Dễ xúc động
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Phạm Ngọc Trúc My', 'avatar3.jpg', 17, '17/11/2007', 'Xinh đẹp, dịu dàng', 'Dễ xúc động')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Phạm Ngọc Trúc My', 'avatar3.jpg', 17, '17/11/2007', 'Xinh đẹp, dịu dàng', 'Dễ xúc động')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 4 -->
                 <div class="member-card">
@@ -151,7 +152,7 @@
                         <strong>Ưu điểm:</strong> Tự tin, nhiệt huyết<br>
                         <strong>Nhược điểm:</strong> Thích kiểm soát
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Nguyễn Võ Hồng Thi', 'avatar4.jpg', 17, '17/05/2007', 'Tự tin, nhiệt huyết', 'Thích kiểm soát')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Nguyễn Võ Hồng Thi', 'avatar4.jpg', 17, '17/05/2007', 'Tự tin, nhiệt huyết', 'Thích kiểm soát')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 5 -->
                 <div class="member-card">
@@ -165,7 +166,7 @@
                         <strong>Ưu điểm:</strong> Siêng năng, chu đáo<br>
                         <strong>Nhược điểm:</strong> Quá nghiêm túc
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Ngô Phan Thái Bình', 'avatar5.jpg', 17, '08/12/2007', 'Siêng năng, chu đáo', 'Quá nghiêm túc')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Ngô Phan Thái Bình', 'avatar5.jpg', 17, '08/12/2007', 'Siêng năng, chu đáo', 'Quá nghiêm túc')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 6 -->
                 <div class="member-card">
@@ -179,7 +180,7 @@
                         <strong>Ưu điểm:</strong> Thân thiện, dễ mến<br>
                         <strong>Nhược điểm:</strong> Hay lo lắng
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Bùi Chí Dũng', 'avatar6.jpg', 17, '13/09/2007', 'Thân thiện, dễ mến', 'Hay lo lắng')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Bùi Chí Dũng', 'avatar6.jpg', 17, '13/09/2007', 'Thân thiện, dễ mến', 'Hay lo lắng')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 7 -->
                 <div class="member-card">
@@ -193,7 +194,7 @@
                         <strong>Ưu điểm:</strong> Tinh tế, khéo léo<br>
                         <strong>Nhược điểm:</strong> Thỉnh thoảng lơ đãng
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Nguyễn Quang Tuấn', 'avatar7.jpg', 17, '20/02/2007', 'Tinh tế, khéo léo', 'Thỉnh thoảng lơ đãng')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Nguyễn Quang Tuấn', 'avatar7.jpg', 17, '20/02/2007', 'Tinh tế, khéo léo', 'Thỉnh thoảng lơ đãng')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 8 -->
                 <div class="member-card">
@@ -207,7 +208,7 @@
                         <strong>Ưu điểm:</strong> Tự lập, mạnh mẽ<br>
                         <strong>Nhược điểm:</strong> Ít chia sẻ
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Huỳnh Long Nhật', 'avatar8.jpg', 17, '27/09/2007', 'Tự lập, mạnh mẽ', 'Ít chia sẻ')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Huỳnh Long Nhật', 'avatar8.jpg', 17, '27/09/2007', 'Tự lập, mạnh mẽ', 'Ít chia sẻ')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 9 -->
                 <div class="member-card">
@@ -221,7 +222,7 @@
                         <strong>Ưu điểm:</strong> Tích cực, lạc quan<br>
                         <strong>Nhược điểm:</strong> Hay vội vã
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Nguyễn Hữu Khanh', 'avatar9.jpg', 17, '21/09/2007', 'Tích cực, lạc quan', 'Hay vội vã')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Nguyễn Hữu Khanh', 'avatar9.jpg', 17, '21/09/2007', 'Tích cực, lạc quan', 'Hay vội vã')">Xét gặp hẹn hò</button>
                 </div>
                 <!-- Thành viên 10 -->
                 <div class="member-card">
@@ -235,7 +236,7 @@
                         <strong>Ưu điểm:</strong> Chăm chỉ, đáng tin cậy<br>
                         <strong>Nhược điểm:</strong> Thích làm việc một mình
                     </p>
-                    <button class="match-button" onclick="showMemberDetail('Phùng Gia Khánh', 'avatar10.jpg', 19, '05/11/2005', 'Chăm chỉ, đáng tin cậy', 'Thích làm việc một mình')">Xét gặp hẹn hò</button>
+                    <button class="match-button" type="button" onclick="showMemberDetail('Phùng Gia Khánh', 'avatar10.jpg', 19, '05/11/2005', 'Chăm chỉ, đáng tin cậy', 'Thích làm việc một mình')">Xét gặp hẹn hò</button>
                 </div>
             </div>
         </section>
@@ -247,10 +248,10 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Họ và Tên</th>
-                            <th>Vai trò</th>
-                            <th></th>
+                            <th scope="col">STT</th>
+                            <th scope="col">Họ và Tên</th>
+                            <th scope="col">Vai trò</th>
+                            <th scope="col"></th>
                         </tr>
                     </thead>
                     <tbody>
@@ -258,65 +259,65 @@
                             <td>1</td>
                             <td>Nguyễn Quang Tú</td>
                             <td>Lập trình Frontend</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Quang Tú', 'Lập trình Frontend', 'avatar1.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Nguyễn Quang Tú', 'Lập trình Frontend', 'avatar1.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>2</td>
                             <td>Phạm Ngọc Trúc My</td>
                             <td>Trưởng nhóm</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Phạm Ngọc Trúc My', 'Trưởng nhóm', 'avatar3.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Phạm Ngọc Trúc My', 'Trưởng nhóm', 'avatar3.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>3</td>
                             <td>Nguyễn Văn Tùng</td>
                             <td>Thiết kế giao diện (UI/UX Designer)</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Văn Tùng', 'Thiết kế giao diện (UI/UX Designer)', 'avatar2.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Nguyễn Văn Tùng', 'Thiết kế giao diện (UI/UX Designer)', 'avatar2.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>4</td>
                             <td>Nguyễn Võ Hồng Thi</td>
                             <td>Thiết kế giao diện (UI/UX Designer)</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Võ Hồng Thi', 'Thiết kế giao diện (UI/UX Designer)', 'avatar4.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Nguyễn Võ Hồng Thi', 'Thiết kế giao diện (UI/UX Designer)', 'avatar4.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>5</td>
                             <td>Ngô Phan Thái Bình</td>
                             <td>Soạn nội dung</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Ngô Phan Thái Bình', 'Soạn nội dung', 'avatar5.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Ngô Phan Thái Bình', 'Soạn nội dung', 'avatar5.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>6</td>
                             <td>Bùi Chí Dũng</td>
                             <td>Soạn nội dung</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Bùi Chí Dũng', 'Soạn nội dung', 'avatar6.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Bùi Chí Dũng', 'Soạn nội dung', 'avatar6.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>7</td>
                             <td>Nguyễn Quang Tuấn</td>
                             <td>Kiếm thử (Tester)</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Quang Tuấn', 'Kiếm thử (Tester)', 'avatar7.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Nguyễn Quang Tuấn', 'Kiếm thử (Tester)', 'avatar7.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>8</td>
                             <td>Huỳnh Long Nhật</td>
                             <td>Kiểm thử (Tester)</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Huỳnh Long Nhật', 'Kiếm thử (Tester)', 'avatar8.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Huỳnh Long Nhật', 'Kiếm thử (Tester)', 'avatar8.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>9</td>
                             <td>Nguyễn Hữu Khanh</td>
                             <td>Báo cáo và trình bày</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Nguyễn Hữu Khanh', 'Báo cáo và trình bày', 'avatar9.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Nguyễn Hữu Khanh', 'Báo cáo và trình bày', 'avatar9.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                         <tr>
                             <td>10</td>
                             <td>Phùng Gia Khánh</td>
                             <td>Báo cáo và trình bày</td>
-                            <td><button class="detail-button" onclick="showAssignmentDetail('Phùng Gia Khánh', 'Báo cáo và trình bày', 'avatar10.jpg')">Khám phá chi tiết</button></td>
+                            <td><button class="detail-button" type="button" onclick="showAssignmentDetail('Phùng Gia Khánh', 'Báo cáo và trình bày', 'avatar10.jpg')">Khám phá chi tiết</button></td>
                         </tr>
                     </tbody>
                 </table>
-                <button class="explore-button" onclick="showAssignmentDetailOverview()">Khám phá ngay</button>
+                <button class="explore-button" type="button" onclick="showAssignmentDetailOverview()">Khám phá ngay</button>
             </div>
         </section>
 
@@ -334,9 +335,9 @@
         <section class="member-detail" id="member-detail" style="display: none;">
             <div class="detail-content">
                 <div class="avatar-circle-large">
-                    <img src="" alt="Thành viên chi tiết" id="detail-avatar">
+                    <img src="default-avatar.png" alt="Thành viên chi tiết" id="detail-avatar">
                 </div>
-                <h2 id="detail-name"></h2>
+                <h2 id="detail-name">Thông tin thành viên</h2>
                 <p class="detail-description">
                     <strong>Tuổi:</strong> <span id="detail-age"></span><br>
                     <strong>Ngày sinh:</strong> <span id="detail-birthday"></span><br>
@@ -344,8 +345,8 @@
                     <strong>Nhược điểm:</strong> <span id="detail-disadvantages"></span>
                 </p>
                 <div class="button-group">
-                    <button class="back-button" onclick="showPage('members')">Quay lại</button>
-                    <button class="match-button" onclick="matchNow()">Xét cặp hẹn hò ngay</button>
+                    <button class="back-button" type="button" onclick="showPage('members')">Quay lại</button>
+                    <button class="match-button" type="button" onclick="matchNow()">Xét cặp hẹn hò ngay</button>
                 </div>
             </div>
         </section>
@@ -354,14 +355,14 @@
         <section class="assignment-detail" id="assignment-detail" style="display: none;">
             <div class="detail-content">
                 <div class="avatar-circle-large">
-                    <img src="" alt="Thành viên công việc" id="assignment-avatar">
+                    <img src="default-avatar.png" alt="Thành viên công việc" id="assignment-avatar">
                 </div>
-                <h2 id="assignment-name"></h2>
+                <h2 id="assignment-name">Chi tiết công việc</h2>
                 <p class="detail-description">
                     <strong>Vai trò:</strong> <span id="assignment-role"></span><br>
                     <strong>Mô tả công việc:</strong> <span id="assignment-description"></span>
                 </p>
-                <button class="back-button" onclick="showPage('assignments')">Quay lại</button>
+                <button class="back-button" type="button" onclick="showPage('assignments')">Quay lại</button>
             </div>
         </section>
     </div>
