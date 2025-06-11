@@ -39,39 +39,41 @@ document.addEventListener('DOMContentLoaded', () => {
         memberCards.forEach(card => {
             observer.observe(card);
 
-            // Hiệu ứng khi chuột lại gần: phóng to và rung
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const centerX = rect.left + rect.width / 2;
-                const centerY = rect.top + rect.height / 2;
-                const distance = Math.sqrt((e.clientX - centerX) ** 2 + (e.clientY - centerY) ** 2);
-                
-                if (distance < 150) { // Chuột trong phạm vi 150px
-                    card.style.transform = 'scale(1.05) rotate(1deg)';
-                    card.style.animation = 'shake 0.5s infinite';
-                    createRippleEffect(card, e.clientX - rect.left, e.clientY - rect.top);
-                }
-            });
+            // Hiệu ứng khi chuột lại gần: phóng to và rung (tắt trên mobile)
+            if (window.innerWidth > 768) {
+                card.addEventListener('mousemove', (e) => {
+                    const rect = card.getBoundingClientRect();
+                    const centerX = rect.left + rect.width / 2;
+                    const centerY = rect.top + rect.height / 2;
+                    const distance = Math.sqrt((e.clientX - centerX) ** 2 + (e.clientY - centerY) ** 2);
+                    
+                    if (distance < 150) {
+                        card.style.transform = 'scale(1.05) rotate(1deg)';
+                        card.style.animation = 'shake 0.5s infinite';
+                        createRippleEffect(card, e.clientX - rect.left, e.clientY - rect.top);
+                    }
+                });
 
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'scale(1) rotate(0deg)';
-                card.style.animation = '';
-            });
-        });
+                card.addEventListener('mouseleave', () => {
+                    card.style.transform = 'scale(1) rotate(0deg)';
+                    card.style.animation = '';
+                });
+            }
 
-        // Hiệu ứng avatar khi hover
-        const avatars = document.querySelectorAll('.avatar-circle');
-        avatars.forEach(avatar => {
-            avatar.addEventListener('mouseover', () => {
-                const randomAngle = Math.random() * 10 - 5;
-                avatar.style.transform = `rotate(${randomAngle}deg) scale(1.1)`;
-                avatar.querySelector('img').style.filter = `brightness(${110 + Math.random() * 10}%) sepia(${Math.random() * 15}%)`;
-                createHeartEffect(avatar);
-            });
-            avatar.addEventListener('mouseout', () => {
-                avatar.style.transform = 'rotate(0deg) scale(1)';
-                avatar.querySelector('img').style.filter = 'brightness(100%) sepia(0%)';
-            });
+            // Hiệu ứng avatar khi hover (tắt rung trên mobile)
+            const avatar = card.querySelector('.avatar-circle');
+            if (avatar && window.innerWidth > 768) {
+                avatar.addEventListener('mouseover', () => {
+                    const randomAngle = Math.random() * 10 - 5;
+                    avatar.style.transform = `rotate(${randomAngle}deg) scale(1.1)`;
+                    avatar.querySelector('img').style.filter = `brightness(${110 + Math.random() * 10}%) sepia(${Math.random() * 15}%)`;
+                    createHeartEffect(avatar);
+                });
+                avatar.addEventListener('mouseout', () => {
+                    avatar.style.transform = 'rotate(0deg) scale(1)';
+                    avatar.querySelector('img').style.filter = 'brightness(100%) sepia(0%)';
+                });
+            }
         });
     }
 
@@ -93,28 +95,32 @@ document.addEventListener('DOMContentLoaded', () => {
     const buttons = document.querySelectorAll('.explore-button, .match-button, .detail-button');
     buttons.forEach(button => {
         button.classList.add('glow');
-        button.addEventListener('mousemove', (e) => {
-            const rect = button.getBoundingClientRect();
-            const distance = Math.sqrt((e.clientX - (rect.left + rect.width / 2)) ** 2 + (e.clientY - (rect.top + rect.height / 2)) ** 2);
-            if (distance < 100) {
-                button.style.transform = 'scale(1.1)';
-                button.style.animation = 'pulseGlow 0.8s infinite';
-            }
-        });
-        button.addEventListener('mouseleave', () => {
-            button.style.transform = 'scale(1)';
-            button.style.animation = '';
-        });
+        if (window.innerWidth > 768) { // Tắt hiệu ứng phức tạp trên mobile
+            button.addEventListener('mousemove', (e) => {
+                const rect = button.getBoundingClientRect();
+                const distance = Math.sqrt((e.clientX - (rect.left + rect.width / 2)) ** 2 + (e.clientY - (rect.top + rect.height / 2)) ** 2);
+                if (distance < 100) {
+                    button.style.transform = 'scale(1.1)';
+                    button.style.animation = 'pulseGlow 0.8s infinite';
+                }
+            });
+            button.addEventListener('mouseleave', () => {
+                button.style.transform = 'scale(1)';
+                button.style.animation = '';
+            });
+        }
     });
 
-    // 5. Hiệu ứng trái tim rơi ngẫu nhiên
+    // 5. Hiệu ứng trái tim rơi ngẫu nhiên (giảm tần suất trên mobile)
     function createFallingHearts() {
-        const heart = document.createElement('div');
-        heart.classList.add('heart-falling');
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.background = `rgba(255, ${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 0.8)`;
-        document.body.appendChild(heart);
-        setTimeout(() => heart.remove(), 5000);
+        if (window.innerWidth > 768 || Math.random() > 0.5) { // Giảm 50% tần suất trên mobile
+            const heart = document.createElement('div');
+            heart.classList.add('heart-falling');
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.background = `rgba(255, ${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 0.8)`;
+            document.body.appendChild(heart);
+            setTimeout(() => heart.remove(), 5000);
+        }
     }
     setInterval(createFallingHearts, 800);
 
@@ -130,10 +136,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Hàm tạo trái tim quanh avatar
     function createHeartEffect(element) {
-        for (let i = 0; i < 7; i++) {
+        for (let i = 0; i < 5; i++) { // Giảm số lượng trái tim từ 7 xuống 5
             const heart = document.createElement('div');
             heart.classList.add('heart');
-            heart.style.left = Math.random() * 120 + 'px';
+            heart.style.left = Math.random() * 100 + 'px';
             heart.style.animationDelay = Math.random() * 0.7 + 's';
             heart.style.background = `rgba(255, ${Math.random() * 100 + 155}, ${Math.random() * 100 + 155}, 0.8)`;
             element.appendChild(heart);
@@ -142,20 +148,24 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Các hàm hiển thị nội dung (giữ nguyên từ mã cũ)
+// Các hàm hiển thị nội dung
 function showPage(pageId) {
     const pages = document.querySelectorAll('#content section');
     pages.forEach(page => page.style.display = 'none');
     document.getElementById(pageId).style.display = 'block';
+    const navLinks = document.getElementById('navLinks');
+    if (navLinks && window.innerWidth <= 768) {
+        navLinks.classList.remove('active'); // Ẩn menu trên mobile khi chọn trang
+    }
 }
 
 function showMemberDetail(name, avatarSrc, age, birthday, advantages, disadvantages) {
-    document.getElementById('detail-name').textContent = name;
-    document.getElementById('detail-avatar').src = avatarSrc;
-    document.getElementById('detail-age').textContent = age;
-    document.getElementById('detail-birthday').textContent = birthday;
-    document.getElementById('detail-advantages').textContent = advantages;
-    document.getElementById('detail-disadvantages').textContent = disadvantages;
+    document.getElementById('detail-name').textContent = name || 'Không có tên';
+    document.getElementById('detail-avatar').src = avatarSrc || 'default-avatar.png';
+    document.getElementById('detail-age').textContent = age || 'N/A';
+    document.getElementById('detail-birthday').textContent = birthday || 'N/A';
+    document.getElementById('detail-advantages').textContent = advantages || 'N/A';
+    document.getElementById('detail-disadvantages').textContent = disadvantages || 'N/A';
     showPage('member-detail');
 }
 
@@ -168,15 +178,24 @@ function showAssignmentDetail(name, role, avatarSrc) {
         'Kiểm thử (Tester)': 'Kiểm tra và đảm bảo website hoạt động ổn định, không có lỗi.',
         'Báo cáo và trình bày': 'Chuẩn bị tài liệu, slide trình bày và báo cáo tiến độ dự án.'
     };
-    document.getElementById('assignment-name').textContent = name;
-    document.getElementById('assignment-avatar').src = avatarSrc;
-    document.getElementById('assignment-role').textContent = role;
-    document.getElementById('assignment-description').textContent = roleDescriptions[role];
+    document.getElementById('assignment-name').textContent = name || 'Không có tên';
+    document.getElementById('assignment-avatar').src = avatarSrc || 'default-avatar.png';
+    document.getElementById('assignment-role').textContent = role || 'N/A';
+    document.getElementById('assignment-description').textContent = roleDescriptions[role] || 'Chưa có mô tả';
     showPage('assignment-detail');
 }
 
 function matchNow() {
     const name = document.getElementById('detail-name').textContent;
-    alert(`Đã gửi yêu cầu ghép đôi với ${name}! Chúng tôi sẽ liên hệ sớm nhất.`);
+    alert(`Đã gửi yêu cầu ghép đôi với ${name || 'thành viên'}! Chúng tôi sẽ liên hệ sớm nhất.`);
 }
-
+// Thêm hàm toggleMenu
+    function toggleMenu() {
+        const navLinks = document.getElementById('navLinks');
+        if (navLinks) {
+            navLinks.classList.toggle('active');
+        }
+    }
+    window.toggleMenu = toggleMenu; // Đăng ký hàm toàn cục
+// Khởi tạo trang mặc định khi tải
+window.onload = () => showPage('home');
